@@ -34,7 +34,7 @@ function ListView({cards}) {
             return (
                 <div key={idx}>
                     list
-                    <ShopCard item={el} />
+                    <ShopItem item={el} />
                 </div>
             )
         })
@@ -46,6 +46,14 @@ function ShopCard({el}) {
 
     return (
         <div>1</div>
+    )
+
+}
+
+function ShopItem({el}) {
+
+    return (
+        <div>2</div>
     )
 
 }
@@ -97,7 +105,7 @@ function Store() {
 
     return (
         <>
-            <IconSwitch icon={list ? 'view_list' : 'view_module'} onSwitch={onSwitch}/>
+            <IconSwitch icon={list ? 'view_module' : 'view_list'} onSwitch={onSwitch}/>
             {list ? <ListView cards={products} /> : <CardsView cards={products} />}
         </>
     );
