@@ -4,13 +4,17 @@ import React, {useState, Component} from 'react';
 function Toolbar({filters, selected, onSelectFilter}) {
 
     return (
-        filters.map((el, idx) => {
-            return (
-            <div key={idx} className={selected === el ? 'selected' : ''} onClick={() => onSelectFilter(el)}>
-                {el}
-            </div>
-            )
-        })
+        <div className="filters">
+            {
+                filters.map((el, idx) => {
+                    return (
+                        <div key={idx} className={selected === el ? 'selected' : ''} onClick={() => onSelectFilter(el)}>
+                            {el}
+                        </div>
+                    )
+                })
+            }
+        </div>
     );
 
 }
@@ -18,13 +22,17 @@ function Toolbar({filters, selected, onSelectFilter}) {
 function ProjectList({projects, active}) {
 
     return (
-        projects.map((el, idx) => {
-            return (
-                <div key={idx} className={active === el.category || active === 'All' ? 'active' : ''}>
-                    <img src={el.img} alt=""/>
-                </div>
-            )
-        })
+        <div className="projects">
+            {
+                projects.map((el, idx) => {
+                    return (
+                        <div key={idx} className={active === el.category || active === 'All' ? 'active' : ''}>
+                            <img src={el.img} alt=""/>
+                        </div>
+                    )
+                })
+            }
+        </div>
     );
 
 }
@@ -118,11 +126,13 @@ function Portfolio() {
 
     return (
         <>
-            <Toolbar
-                filters={filters}
-                selected={selected}
-                onSelectFilter={onSelectFilter}/>
-            <ProjectList projects={projects} active={selected} />
+            <div className="content">
+                <Toolbar
+                    filters={filters}
+                    selected={selected}
+                    onSelectFilter={onSelectFilter}/>
+                <ProjectList projects={projects} active={selected} />
+            </div>
         </>
     );
 
