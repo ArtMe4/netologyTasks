@@ -1,5 +1,7 @@
 import './App.css';
 import React, {useState, Component} from 'react';
+import {Toolbar} from './components/Portfolio/Toolbar/Toolbar';
+import {ProjectList} from './components/Portfolio/ProjectList/ProjectList';
 
 const projects = [
     {
@@ -77,43 +79,6 @@ const filters = [
     "Flayers",
     "Business Cards"
 ];
-
-function Toolbar({filters, selected, onSelectFilter}) {
-
-    return (
-        <div className="filters">
-            {
-                filters.map((el, idx) => {
-                    return (
-                        <div key={idx} className={selected === el ? 'selected' : ''} onClick={() => onSelectFilter(el)}>
-                            {el}
-                        </div>
-                    )
-                })
-            }
-        </div>
-    );
-
-}
-
-function ProjectList({projects, active}) {
-
-    return (
-        <div className="projects">
-            {
-                projects.map((el, idx) => {
-                    return (
-                        <div key={idx} className={active === el.category || active === 'All' ? 'active' : ''}>
-                            <img src={el.img} alt=""/>
-                        </div>
-                    )
-                })
-            }
-        </div>
-    );
-
-}
-
 
 function Portfolio() {
 

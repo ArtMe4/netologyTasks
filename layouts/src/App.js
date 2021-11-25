@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {useState} from 'react';
+import {IconSwitch} from './components/Store/IconSwitch/IconSwitch'
+import {CardsView} from './components/Store/CardsView/CardsView'
+import {ListView} from './components/Store/ListView/ListView'
 
 const products = [
     {
@@ -40,100 +43,6 @@ const products = [
         img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/5.jpg"
     }
 ];
-
-function IconSwitch({icon, onSwitch}) {
-
-    return (
-        <div className={"view-switcher"}>
-            <span className="material-icons" onClick={onSwitch}>
-                {icon}
-            </span>
-        </div>
-    );
-
-}
-
-function CardsView({cards}) {
-
-    return (
-        <div className={"card-items"}>
-            {
-                cards.map((el, idx) => {
-                    return (
-                        <ShopCard key={idx} item={el}/>
-                    )
-                })
-            }
-        </div>
-    );
-
-}
-
-function ListView({cards}) {
-
-    return (
-        <div className={"list-items"}>
-            {
-                cards.map((el, idx) => {
-                    return (
-                        <ShopItem key={idx} item={el}/>
-                    )
-                })
-            }
-        </div>
-    );
-
-}
-
-function ShopCard({item}) {
-
-    return (
-        <div className={"card-items__item"}>
-            <div className={"item-name"}>
-                {item.name}
-            </div>
-            <div className={"item-color"}>
-                {item.color}
-            </div>
-            <div className={"item-image"}>
-                <img src={item.img} alt=""/>
-            </div>
-            <div className={"item-down"}>
-                <div className={"item-price"}>
-                    ${item.price}
-                </div>
-                <div className={"item-btn"}>
-                    Add to cart
-                </div>
-            </div>
-        </div>
-    )
-
-}
-
-function ShopItem({item}) {
-
-    return (
-        <div className={"list-items__item"}>
-            <div className={"item-image"}>
-                <img src={item.img} alt=""/>
-            </div>
-            <div className={"item-name"}>
-                {item.name}
-            </div>
-            <div className={"item-color"}>
-                {item.color}
-            </div>
-            <div className={"item-price"}>
-                ${item.price}
-            </div>
-            <div className={"item-btn"}>
-                Add to cart
-            </div>
-        </div>
-    )
-
-}
 
 function Store() {
 
