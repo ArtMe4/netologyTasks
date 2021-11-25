@@ -1,4 +1,6 @@
-export function ProjectList({projects, active}) {
+import PropTypes from 'prop-types';
+
+function ProjectList({projects, active}) {
 
     return (
         <div className="projects">
@@ -15,3 +17,12 @@ export function ProjectList({projects, active}) {
     );
 
 }
+
+ProjectList.propTypes = {
+
+    projects: PropTypes.array,
+    active: PropTypes.string
+
+}
+
+export default ProjectList;

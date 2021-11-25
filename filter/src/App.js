@@ -1,7 +1,8 @@
 import './App.css';
-import React, {useState, Component} from 'react';
-import {Toolbar} from './components/Portfolio/Toolbar/Toolbar';
-import {ProjectList} from './components/Portfolio/ProjectList/ProjectList';
+import React, {useState} from 'react';
+import Toolbar from './components/Portfolio/Toolbar/Toolbar';
+import ProjectList from './components/Portfolio/ProjectList/ProjectList';
+import PropTypes from "prop-types";
 
 const projects = [
     {
@@ -101,6 +102,34 @@ function Portfolio() {
             </div>
         </>
     );
+
+}
+
+Toolbar.defaultProps = {
+
+    filters: ['All', 'Websites'],
+    selected: 'All'
+
+}
+
+ProjectList.defaultProps = {
+
+    projects: [
+        {
+            img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
+            category: "Business Cards"
+        }
+    ],
+    active: 'All'
+
+}
+
+Portfolio.propTypes = {
+
+    filters: PropTypes.array,
+    selected: PropTypes.string,
+    onSelectFilter: PropTypes.func,
+    projects: PropTypes.array
 
 }
 

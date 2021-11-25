@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import {IconSwitch} from './components/Store/IconSwitch/IconSwitch'
 import {CardsView} from './components/Store/CardsView/CardsView'
 import {ListView} from './components/Store/ListView/ListView'
+import PropTypes from "prop-types";
 
 const products = [
     {
@@ -59,6 +60,50 @@ function Store() {
             </div>
         </>
     );
+}
+
+IconSwitch.defaultProps = {
+
+    icon: 'view_list',
+    list: 0,
+    onSwitch: () => {}
+
+}
+
+ListView.defaultProps = {
+    cards: [
+        {
+            name: "Nike Metcon 2",
+            price: "130",
+            color: "red",
+            img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/1.jpg"
+        }
+    ]
+}
+
+CardsView.defaultProps = {
+    cards: [
+        {
+            name: "Nike Metcon 2",
+            price: "130",
+            color: "red",
+            img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/1.jpg"
+        }
+    ]
+}
+
+IconSwitch.propTypes = {
+    icon: PropTypes.string,
+    list: PropTypes.number,
+    onSwitch: PropTypes.func
+}
+
+ListView.propTypes = {
+    cards: PropTypes.array
+}
+
+CardsView.propTypes = {
+    cards: PropTypes.array
 }
 
 export default Store;

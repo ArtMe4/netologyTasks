@@ -1,4 +1,6 @@
-export function Toolbar({filters, selected, onSelectFilter}) {
+import PropTypes from 'prop-types';
+
+function Toolbar({filters, selected, onSelectFilter}) {
 
     return (
         <div className="filters">
@@ -15,3 +17,13 @@ export function Toolbar({filters, selected, onSelectFilter}) {
     );
 
 }
+
+Toolbar.propTypes = {
+
+    filters: PropTypes.array,
+    selected: PropTypes.string,
+    onSelectFilter: PropTypes.func
+
+}
+
+export default Toolbar;
